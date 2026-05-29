@@ -1,0 +1,15 @@
+    SELECT AGREEMENT_RK, TARGET, AGE, SOCSTATUS_WORK_FL,
+           SOCSTATUS_PENS_FL, GENDER, CHILD_TOTAL, DEPENDANTS, PERSONAL_INCOME
+        FROM d_clients as cl
+    INNER JOIN d_agreement as agr
+    ON cl.id = agr.id_client
+    INNER JOIN d_loan
+    ON cl.id = d_loan.id_client
+    INNER JOIN d_close_loan
+    ON d_loan.id_loan = d_close_loan.id_loan  
+    INNER JOIN d_salary
+    ON cl.id = d_salary.id_client
+    INNER JOIN d_work
+    ON cl.id = d_work.id 
+    INNER JOIN d_pens
+    ON cl.id = d_pens.id
